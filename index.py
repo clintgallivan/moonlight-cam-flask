@@ -3,8 +3,10 @@ import cv2
 
 app = Flask(__name__)
 # camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture(
+# "rtsp://username:password@192.168.1.16:8554/profile0")
 camera = cv2.VideoCapture(
-    "rtsp://username:password@192.168.1.16:8554/profile0")
+    "rtsp://username:password@174.65.33.32:8554/profile0")
 
 
 def generate_frames():
