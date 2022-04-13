@@ -41,9 +41,10 @@
 
 from flask import Flask, render_template, Response
 import cv2
-import queue
 import threading
 import time
+import queue
+
 
 # bufferless VideoCapture
 
