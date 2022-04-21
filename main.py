@@ -137,6 +137,8 @@ class VideoCapture:
             ret, frame = self.cap.read()
             rotated = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
             cropped_img = rotated[100:500, 0:885]
+            resized_img = cv2.resize(cropped_img, (442, 200))
+
             if not ret:
                 break
             if not self.q.empty():
@@ -144,7 +146,7 @@ class VideoCapture:
                     self.q.get_nowait()   # discard previous (unprocessed) frame
                 except queue.Empty:
                     pass
-            self.q.put(cropped_img)
+            self.q.put(resized_img)
 
     def read(self):
         return self.q.get()
